@@ -1,44 +1,40 @@
 {
   "videos": [
     {
-      "_id": "eb4e8d650bf069a8579c",
-      "title": "How to earn money as a student",
-      "description": "In this video we will telling that how a student earn money though the 3 platforms.",
-      "videoUrl": "",
-      "videoFile": "07bce5f9e569b27a566a.mp4",
-      "thumbnail": "5a5b95a5693b7da4dacb.png",
-      "createdAt": "2026-04-13T20:29:14.666Z",
-      "hlsVideo": "hls/eb4e8d650bf069a8579c/master.m3u8"
-    },
-    {
-      "_id": "3606983976c287d57e79",
+      "_id": "671660bc7da74fcbf006",
       "title": "Top Secret hacks how to sell",
-      "description": "In this podcast, James Ashford shares her insights on how to sell, drawing from her personal experience.",
-      "videoUrl": "",
-      "videoFile": "c12ee5efb4657819739e.mp4",
-      "thumbnail": "da7a02cd5eff338ccabe.png",
-      "createdAt": "2026-04-19T10:28:19.180Z",
-      "hlsVideo": "hls/3606983976c287d57e79/master.m3u8"
+      "description": "In this podcast, James Ashford shares her insights on how to sell, drawing from her personal experience of building a successful business from the ground up.",
+      "videoUrl": "https://youtu.be/2Cu_dcZwmHY",
+      "videoFile": "",
+      "thumbnail": "fc7bf4cb2bbc0ac497a5.png",
+      "createdAt": "2026-04-19T16:06:28.082Z"
     },
     {
-      "_id": "cfb448e4c0e41c5c2815",
-      "title": "Stop Hiding Your Skin Issues!",
-      "description": "In this video, we talk about real skin, real struggles, and why embracing your natural beauty is more powerful than chasing perfection.",
-      "videoUrl": "",
-      "videoFile": "5c27a307017046c3bf20.mp4",
-      "thumbnail": "4f7ee470daef9bdd1325.png",
-      "createdAt": "2026-04-19T10:48:09.890Z",
-      "hlsVideo": "hls/cfb448e4c0e41c5c2815/master.m3u8"
-    },
-    {
-      "_id": "dafe0a83f3816d4a8ff4",
+      "_id": "08d4d26c4bb12e00f7e4",
       "title": "The Confidence Myth",
-      "description": "Confidence isn’t something you’re born with—it’s built through action, failure, and persistence.\r\nThis video breaks the myth and shows how real confidence is created, not faked.",
-      "videoUrl": "",
-      "videoFile": "6cf7e5478b082257fa4d.mp4",
-      "thumbnail": "6a2fa13375f4224adaf0.png",
-      "createdAt": "2026-04-19T11:48:34.442Z",
-      "hlsVideo": "hls/dafe0a83f3816d4a8ff4/master.m3u8"
+      "description": "Confidence isn’t something you’re simply born with—it’s something you build over time through action, failure, learning, and persistence.",
+      "videoUrl": "https://youtube.com/shorts/dASco2ZIUZY",
+      "videoFile": "",
+      "thumbnail": "1cec97b71b323acba270.png",
+      "createdAt": "2026-04-19T16:10:47.760Z"
+    },
+    {
+      "_id": "9bedbc959ece753c84c7",
+      "title": "Stop Hiding Your Skin Issues",
+      "description": "In this video, we talk about real skin, real struggles, and why embracing your natural beauty is more powerful than chasing perfection. In a world filled with filters, flawless edits, and unrealistic standards, it’s easy to feel like your skin isn’t “good enough.”",
+      "videoUrl": "https://youtube.com/shorts/7yRtN5epLZM",
+      "videoFile": "",
+      "thumbnail": "677de9730358ff73a14e.png",
+      "createdAt": "2026-04-19T16:11:31.661Z"
+    },
+    {
+      "_id": "fa858f30051203ed182b",
+      "title": "https://youtu.be/MTV8vUKKzWk",
+      "description": "In this video, we explore how students can start earning money using three powerful platforms, even without prior experience or a big investment.",
+      "videoUrl": "https://youtu.be/MTV8vUKKzWk",
+      "videoFile": "",
+      "thumbnail": "f65eb3957599b4c0d339.png",
+      "createdAt": "2026-04-19T16:12:13.898Z"
     }
   ]
 }

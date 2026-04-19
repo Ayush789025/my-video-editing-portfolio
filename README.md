@@ -62,7 +62,7 @@ If you want to run this application locally on your machine:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/Portfolio-v2.git
+   git clone https://github.com/Ayush789025/Portfolio-v2.git
    cd Portfolio-v2
    ```
 
