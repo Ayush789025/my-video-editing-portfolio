@@ -110,7 +110,7 @@ if (statsEl) {
 /* ── Embed URL helper ── */
 function toEmbedUrl(url) {
   if (!url) return null;
-  const yt = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([A-Za-z0-9_-]{11})/);
+  const yt = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/shorts\/)([A-Za-z0-9_-]{11})/);
   if (yt) return `https://www.youtube.com/embed/${yt[1]}?rel=0&modestbranding=1`;
   const vim = url.match(/vimeo\.com\/(\d+)/);
   if (vim) return `https://player.vimeo.com/video/${vim[1]}?title=0&byline=0`;
