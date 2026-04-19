@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Login — Lens & Frame</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;1,300&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/admin.css"/>
+</head>
+<body class="auth-body">
+  <canvas id="starfield"></canvas>
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <a href="/" class="auth-logo">Ayush <span>Sarkar</span></a>
+      <p class="auth-subtitle">Admin Access</p>
+      <form id="login-form" novalidate>
+        <div class="field-wrap">
+          <input type="text" id="lg-user" name="username" placeholder=" " required autocomplete="off"/>
+          <label for="lg-user">Username</label>
+        </div>
+        <div class="field-wrap">
+          <input type="password" id="lg-pass" name="password" placeholder=" " required/>
+          <label for="lg-pass">Password</label>
+        </div>
+        <button type="submit" class="btn btn-primary pulse-btn full-w">Sign In</button>
+        <div id="lg-error" class="form-status error"></div>
+      </form>
+      <a href="/" class="auth-back">Return to Portfolio</a>
+    </div>
+  </div>
+  <script src="js/stars.js"></script>
+  <script>
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type=submit]');
+      const err = document.getElementById('lg-error');
+      btn.disabled = true; btn.textContent = 'Signing in...'; err.textContent = '';
+      try {
+        const res = await fetch('/api/login', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({
+            username: document.getElementById('lg-user').value,
+            password: document.getElementById('lg-pass').value
+          })
+        });
+        const d = await res.json();
+        if (d.success) { window.location.href = '/dashboard.html'; }
+        else { err.textContent = d.message || 'Invalid credentials.'; btn.disabled = false; btn.textContent = 'Sign In'; }
+      } catch { err.textContent = 'Server error. Try again.'; btn.disabled = false; btn.textContent = 'Sign In'; }
+    });
+  </script>
+</body>
+</html>

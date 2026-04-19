@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard — Lens & Frame</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;1,300&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/admin.css"/>
+</head>
+<body class="dash-body">
+  <canvas id="starfield"></canvas>
+
+  <div class="dash-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="dash-sidebar">
+      <div class="ds-logo">Ayush <span>Sarkar</span></div>
+      <nav class="ds-nav">
+        <button class="ds-link active" data-panel="library">
+          <svg viewBox="0 0 20 20" fill="none"><rect x="2" y="4" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.3"/><polygon points="8,7.5 8,12.5 14,10" fill="currentColor"/></svg>
+          Video Library
+        </button>
+        <button class="ds-link" data-panel="add">
+          <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.3"/><line x1="10" y1="6" x2="10" y2="14" stroke="currentColor" stroke-width="1.3"/><line x1="6" y1="10" x2="14" y2="10" stroke="currentColor" stroke-width="1.3"/></svg>
+          Add Video
+        </button>
+      </nav>
+      <div class="ds-footer">
+        <a href="/" class="ds-link">
+          <svg viewBox="0 0 20 20" fill="none"><path d="M3 10 L10 3 L17 10" stroke="currentColor" stroke-width="1.3"/><path d="M5 10 L5 17 L15 17 L15 10" stroke="currentColor" stroke-width="1.3"/></svg>
+          Portfolio
+        </a>
+        <button class="ds-link danger" id="logout-btn">
+          <svg viewBox="0 0 20 20" fill="none"><path d="M13 7 L17 10 L13 13" stroke="currentColor" stroke-width="1.3"/><line x1="17" y1="10" x2="7" y2="10" stroke="currentColor" stroke-width="1.3"/><path d="M9 5 L5 5 L5 15 L9 15" stroke="currentColor" stroke-width="1.3"/></svg>
+          Log Out
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="dash-main">
+
+      <!-- Library Panel -->
+      <div class="d-panel active" id="panel-library">
+        <div class="d-panel-head">
+          <h1>Video Library</h1>
+          <button class="btn btn-primary pulse-btn" id="go-add-btn">Add New Video</button>
+        </div>
+        <div id="lib-list" class="lib-list">
+          <div class="grid-loader"><div class="loader-ring"></div><span>Loading...</span></div>
+        </div>
+      </div>
+
+      <!-- Add Video Panel -->
+      <div class="d-panel" id="panel-add">
+        <div class="d-panel-head">
+          <h1>Add New Video</h1>
+        </div>
+        <form id="add-form" class="add-form" enctype="multipart/form-data">
+
+          <div class="form-row-2">
+            <div class="field-wrap">
+              <input type="text" id="av-title" name="title" placeholder=" " required autocomplete="off"/>
+              <label for="av-title">Video Title</label>
+            </div>
+          </div>
+
+          <div class="field-wrap">
+            <textarea id="av-desc" name="description" rows="3" placeholder=" " required></textarea>
+            <label for="av-desc">Description</label>
+          </div>
+
+          <!-- Thumbnail upload -->
+          <div class="upload-section">
+            <p class="upload-section-label">Thumbnail Image <span style="font-size: 0.7em; margin-left: 0.5rem; font-weight: normal; color: var(--text-3);">(Optional)</span></p>
+            <div class="drop-zone" id="thumb-zone" data-target="av-thumb">
+              <input type="file" id="av-thumb" name="thumbnail" accept="image/*" style="display:none"/>
+              <div class="dz-icon">
+                <svg viewBox="0 0 40 40" fill="none"><rect x="4" y="10" width="32" height="22" rx="3" stroke="currentColor" stroke-width="1.3"/><circle cx="14" cy="18" r="3" stroke="currentColor" stroke-width="1.3"/><path d="M4 28 L12 20 L18 26 L24 20 L36 30" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>
+              </div>
+              <p>Drag and drop image, or <span class="dz-browse">Browse</span></p>
+              <span class="dz-filename" id="thumb-name">No file chosen</span>
+            </div>
+            <div class="thumb-preview-wrap" id="thumb-preview-wrap" style="display:none">
+              <img id="thumb-preview" src="" alt="Thumbnail preview"/>
+              <button type="button" class="remove-preview" id="remove-thumb">Remove</button>
+            </div>
+          </div>
+
+          <!-- Video source -->
+          <div class="upload-section">
+            <p class="upload-section-label">Video Source <span class="req">*</span></p>
+            <div class="source-tabs">
+              <button type="button" class="src-tab active" data-src="url">URL Link</button>
+              <button type="button" class="src-tab" data-src="file">Upload File</button>
+            </div>
+
+            <div class="src-panel active" id="src-url-panel">
+              <div class="field-wrap mt-sm">
+                <input type="text" id="av-url" name="videoUrl" placeholder=" " autocomplete="off"/>
+                <label for="av-url">YouTube or Vimeo URL</label>
+              </div>
+            </div>
+
+            <div class="src-panel" id="src-file-panel">
+              <div class="drop-zone mt-sm" id="video-zone" data-target="av-file">
+                <input type="file" id="av-file" name="videoFile" accept="video/*" style="display:none"/>
+                <div class="dz-icon">
+                  <svg viewBox="0 0 40 40" fill="none"><rect x="4" y="11" width="32" height="20" rx="3" stroke="currentColor" stroke-width="1.3"/><polygon points="16,15 16,26 27,20.5" fill="currentColor" opacity=".6"/></svg>
+                </div>
+                <p>Drag and drop video, or <span class="dz-browse">Browse</span></p>
+                <span class="dz-filename" id="video-name">No file chosen</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary pulse-btn">Publish Video</button>
+            <button type="button" class="btn btn-outline pulse-btn" id="cancel-add">Cancel</button>
+            <div id="add-status" class="form-status"></div>
+          </div>
+
+        </form>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="js/stars.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
