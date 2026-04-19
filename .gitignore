@@ -1,4 +1,6 @@
 node_modules/
-public/uploads/
+public/uploads/*.mp4
+public/uploads/*.webm
+public/uploads/hls/
 .env
 .DS_Store
